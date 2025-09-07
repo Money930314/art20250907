@@ -52,11 +52,13 @@
       <!-- 左側清單 -->
       <div class="col-lg-8">
         <section id="cart-list" class="cart-list-card"></section>
-        <div id="empty-state" class="text-center py-5 d-none">
-          <p class="text-white-50 mb-3">購物車是空的。</p>
-          <a class="btn btn-light" href="products.html">去逛逛</a>
+
+        <!-- ✅ 只保留這個空態區塊；下面那個重複的 empty-state 請刪除 -->
+        <div id="empty-state" class="empty-card d-none">
+          <h3 class="empty-title mb-3">您的購物車目前還是空的。</h3>
+          <a class="btn btn-dark" href="products.html">去逛逛➜</a>
         </div>
-      </div>
+    </div>
 
       <!-- 右側總金額 -->
       <aside class="col-lg-4">
@@ -67,10 +69,14 @@
             <strong id="summary-total">NT$ 0</strong>
           </div>
           <p class="text-muted small mt-2">運費、稅額以結帳頁計算</p>
-          <button id="checkout-btn" class="btn btn-dark w-100 mt-3">結帳 →</button>
+          <button id="checkout-btn" class="btn btn-dark w-100 mt-3">結帳➜</button>
+          
         </div>
       </aside>
     </div>
+
+
+
   </main>
 
   <!-- Footer -->
