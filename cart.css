@@ -95,3 +95,67 @@ body.cart-page {
 .footer-icon:hover {
   color: #fff;
 }
+
+
+
+
+/* ---- Footer ---- */
+.site-footer {
+  background: #000;
+  color: #fff;
+  position: relative;
+  
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+.site-footer a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+
+/* 空車時：隱藏左側清單與右側總金額 */
+.is-empty #cart-list-section,
+.is-empty #summary-aside { display: none !important; }
+.is-empty #cart-list,
+.is-empty .summary-card { display: none !important; }
+.is-empty #cart-list { background: transparent !important; box-shadow: none !important; }
+
+
+
+/* 讓 footer 能貼底：整頁高度佈局 */
+html, body { height: 100%; }
+.cart-page { min-height: 100%; display: flex; flex-direction: column; }
+.cart-main { flex: 1 0 auto; padding-top: 96px; padding-bottom: 56px; }
+
+/* 右側總金額小卡（原本就有，可保留你的樣式；以下是保守補強） */
+.summary-card{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+  padding:20px 20px 24px;
+}
+
+/* ✅ 左側空態白色小卡 */
+.empty-card{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+  padding:32px 28px;
+  text-align:center;
+  color:#111;
+}
+.empty-card .empty-title{
+  font-size:1.25rem;
+  font-weight:700;
+}
+
+/* 左欄清單卡與空態卡的間距/對齊（視覺一致） */
+.cart-list-card + .empty-card { margin-top: 0; }
+
