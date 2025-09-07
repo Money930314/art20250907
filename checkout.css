@@ -1,0 +1,145 @@
+/* 結帳頁：僅少量客製，維持 Bootstrap 視覺 */
+
+.summary-items {
+  max-height: 280px;
+  overflow: auto;
+  border: 1px solid #e9ecef;
+  border-radius: .5rem;
+  padding: .5rem;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .5rem;
+  border-bottom: 1px dashed #eee;
+}
+.summary-item:last-child { border-bottom: 0; }
+
+.summary-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: .5rem;
+  object-fit: cover;
+}
+
+.badge-qty {
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  font-size: .7rem;
+}
+
+.site-footer {
+  background: #0f0f10;
+}
+.site-footer .footer-link {
+  color: #9aa0a6;
+  text-decoration: none;
+}
+.site-footer .footer-link:hover {
+  color: #ffffff;
+}
+
+/* 小螢幕：右側摘要在下方，sticky-top 自動失效（靠 Bootstrap 行為即可） */
+
+
+/* ========== Checkout Only 基本設定 ========== */
+:root{
+  --co-max: 1120px;        /* 抬頭與內容最大寬 */
+  --co-space: 24px;        /* 抬頭上下間距 */
+  --co-gray-100:#f5f7fa;
+  --co-gray-200:#e9eef3;
+  --co-gray-400:#94a3b8;
+  --co-gray-600:#475569;
+  --co-black:#111827;
+  --co-link:#0d6efd;
+}
+
+*{ box-sizing:border-box; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, "PingFang TC", "Microsoft JhengHei",
+               sans-serif;
+  color:var(--co-black);
+  background-color:#fff;
+}
+
+/* 若其他頁注入了全站導覽列，這裡保證它不顯示 */
+.navbar, .site-header, .global-nav{ display:none !important; }
+
+/* ========== 抬頭樣式（只有商標 + 麵包屑） ========== */
+.checkout-header{
+  border-bottom:1px solid var(--co-gray-200);
+  background:#fff;
+}
+
+.co-container{
+  max-width:var(--co-max);
+  margin-inline:auto;
+  padding: clamp(12px, 2.3vw, 20px) 16px;
+  text-align:left;
+}
+
+/* 商標 */
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+
+.brand-logo{
+  display:block;
+  height:56px;            /* 有圖標時可調整 */
+  width:auto;
+}
+
+.brand-text{
+  font-weight:800;
+  font-size: clamp(28px, 4.2vw, 42px);
+  letter-spacing: .06em;
+  color: var(--co-black);
+}
+
+/* 麵包屑 */
+.co-crumb{
+  margin-top:8px;
+  font-size:14px;
+  color:var(--co-gray-600);
+}
+
+.crumb-link{
+  color:var(--co-link);
+  text-decoration:none;
+}
+.crumb-link:hover{ text-decoration:underline; }
+
+.crumb-sep{
+  display:inline-block;
+  margin:0 6px;
+  color:var(--co-gray-400);
+}
+
+/* 讓後面的內容不會被抬頭擠住（如果你的主內容是 fixed header 才需要） */
+/* .checkout-main{ padding-top: 16px; } */
+
+/* 小螢幕友善 */
+@media (max-width: 576px){
+  .brand-logo{ height:48px; }
+}
+
+/* 輸入框 placeholder 顯示淺灰 */
+.form-control::placeholder,
+.form-select:invalid {
+  color: #9aa0a6;   /* 淺灰 */
+  opacity: 1;
+}
+
+/* 讓 select 沒選時顯示灰字 */
+.form-select:invalid {
+  color: #9aa0a6;
+}
