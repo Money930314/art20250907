@@ -99,6 +99,29 @@ document.addEventListener('DOMContentLoaded', ()=>{
   render();
   document.getElementById('checkout-btn')?.addEventListener('click', ()=>{
     if(readCart().length===0) return alert('購物車是空的');
-    alert('導向結帳頁');
+    
   });
 });
+
+function refreshEmptyState() {
+  const main = document.getElementById('cart-main');   // ← main 現在有這個 id
+  const emptyState = document.getElementById('empty-state');
+  const isEmpty = readCart().length === 0;
+
+  if (!main || !emptyState) return;
+  main.classList.toggle('is-empty', isEmpty);
+  emptyState.hidden = !isEmpty;        // 空車顯示白卡
+}
+document.addEventListener('DOMContentLoaded', () => {
+  updateBadge();
+  render?.();            // 你的既有渲染
+  refreshEmptyState();   // 套用空車狀態
+});
+
+
+
+//把購物車網頁的"結帳➜"添加"結帳"頁面的網址
+  document.getElementById("checkout-btn").addEventListener("click", function() {
+    window.location.href = "checkout.html";
+  });
+
